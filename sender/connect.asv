@@ -1,0 +1,13 @@
+function connect(ip, port)
+    u = udpport("IPV4", 'LocalPort', port);
+    configureTerminator(u,"CR/LF");
+    ip_client = ipread();
+    % msg = strcat("rstd", "//", ip_client);
+    writeline(u, "sto[, ip, port);
+    if u.NumBytesAvailable() > 0
+        resp = readline(u);
+        fprintf("msg response: ", resp);
+    end
+    clear u
+end
+

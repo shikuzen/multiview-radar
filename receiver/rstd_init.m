@@ -1,4 +1,4 @@
-function ErrStatus = Init_RSTD_Connection(RSTD_DLL_Path)
+function ErrStatus = rstd_init(RSTD_DLL_Path)
     if (strcmp(which('RtttNetClientAPI.RtttNetClient.IsConnected'),''))
         disp('Adding RSTD Assembly');
         RSTD_Assembly = NET.addAssembly(RSTD_DLL_Path);
@@ -66,7 +66,7 @@ function ErrStatus = Init_RSTD_Connection(RSTD_DLL_Path)
     else
         disp('--RF Enable Pass--');
     end
-    pause(8);
+    pause(5);
     Lua_String = 'ar1.ChanNAdcConfig(1, 1, 1, 1, 1, 1, 1, 2, 1, 0)';
     ErrStatus = RtttNetClientAPI.RtttNetClient.SendCommand(Lua_String);
     if (ErrStatus ~= 30000)
@@ -191,7 +191,6 @@ function ErrStatus = Init_RSTD_Connection(RSTD_DLL_Path)
         disp('--CCCP Pass--');
     end
     pause(1);
-
 
 disp('all config success');
 end
