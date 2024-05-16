@@ -8,15 +8,17 @@ while true
     if u.NumBytesAvailable > 0
         msg = readline(u);
         msg = split(msg, "//");
+        disp(msg);
         sub1 = msg{1};
         sub2 = cellstr(msg{2});
-        fprintf("msg client: %s\n", msg{1});
+        sub3 = cellstr(msg{3});
+        fprintf("msg client: %s\n", sub1);
         if strcmp(sub1, "rstd")
             resp = rstd_start();
-            writeline(u, resp, sub2{1}, port);
+            writeline(u, resp, sub2{1}, sub3{1});
         elseif strcmp(sub1, "getframe")
             resp = rstd_getframe();
-            writeline(u, resp, sub2{1}, port);
+            writeline(u, resp, sub2{1}, sub3{1});
         elseif strcmp(sub1, "stop") == 1
             break;
         end
