@@ -18,7 +18,7 @@ while true
         if strcmp(sub1, "rstd")
             resp = rstd_start(u, cip{1}, fixport{1});
         elseif strcmp(sub1, "getframe")
-            resp = rstd_getframe(u, cip{1}, fixport{1});
+            resp = rstd_getframe(u,);
         elseif strcmp(sub1, "stop") == 1
             break;
         end

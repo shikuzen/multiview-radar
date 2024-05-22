@@ -1,5 +1,5 @@
 function status = rstd_getframe(u, cip, fixport)
-    fixport = str2num(fixport);
+    fixport = str2num(fixport)
     fix_path = 'C:\\distributed_data';
     mkdir(fix_path);
     save_path = strcat(fix_path, '\\', 'adc_data.bin');
@@ -14,7 +14,6 @@ function status = rstd_getframe(u, cip, fixport)
 
     Lua_String = 'ar1.StartFrame()';
     ErrStatus = RtttNetClientAPI.RtttNetClient.SendCommand(Lua_String);
-    writeline(u, "start", cip, fixport);
     
     if (ErrStatus ~= 30000)
         disp('XX START XX');
@@ -24,7 +23,7 @@ function status = rstd_getframe(u, cip, fixport)
     pause(10); %% frame time
     Lua_String = 'ar1.StopFrame()';
     ErrStatus = RtttNetClientAPI.RtttNetClient.SendCommand(Lua_String);
-    writeline(u, "stop", cip, fixport);
+    writeline(u, "stop", cip, fixport)
     if (ErrStatus ~= 30000)
         disp('XX STOP XX');
     else

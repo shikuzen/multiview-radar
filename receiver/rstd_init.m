@@ -134,7 +134,7 @@ function ErrStatus = rstd_init(RSTD_DLL_Path, u, cip, fixport)
         writeline(u, "--LVDS Lane Pass--", cip, fixport);
     end
     pause(1);
-    Lua_String = 'ar1.ProfileConfig(0, 77, 7, 6, 106.9, 0, 0, 0, 0, 0, 0, 37.417, 1, 256, 3000, 0, 0, 30)';
+    Lua_String = 'ar1.ProfileConfig(0, 77, 5, 6.4, 93.4, 0, 0, 0, 0, 0, 0, 21.243, 1, 256, 3000, 0, 0, 30)';
     ErrStatus = RtttNetClientAPI.RtttNetClient.SendCommand(Lua_String);
     if (ErrStatus ~= 30000)
         disp('XX Profile config Fail XX');
