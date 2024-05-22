@@ -21,7 +21,7 @@ function status = rstd_getframe(u, cip, fixport)
     else
         disp('--START--');
     end
-    pause(10); %% frame time
+    pause(35); %% frame time
     Lua_String = 'ar1.StopFrame()';
     ErrStatus = RtttNetClientAPI.RtttNetClient.SendCommand(Lua_String);
     writeline(u, "stop", cip, fixport);

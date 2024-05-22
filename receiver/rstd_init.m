@@ -111,7 +111,7 @@ function ErrStatus = rstd_init(RSTD_DLL_Path, u, cip, fixport)
         writeline(u, "XX Data path Fail XX", cip, fixport);
     else
         disp('--Data path config Pass--');
-        writeline(u, "--Data path Fail--c", cip, fixport);
+        writeline(u, "--Data path config Pass--", cip, fixport);
     end
     pause(1);
     Lua_String = 'ar1.LvdsClkConfig(1, 1)';
@@ -174,7 +174,7 @@ function ErrStatus = rstd_init(RSTD_DLL_Path, u, cip, fixport)
         writeline(u, "--Chirp 3 config Pass--", cip, fixport);
     end
     pause(1);
-    Lua_String = 'ar1.FrameConfig(0, 2, 0, 32, 33.333333, 0, 0, 1)';
+    Lua_String = 'ar1.FrameConfig(0, 2, 0, 64, 33.333333, 0, 0, 1)';
     ErrStatus = RtttNetClientAPI.RtttNetClient.SendCommand(Lua_String);
     if (ErrStatus ~= 30000)
         disp('XX Frame config Fail XX');

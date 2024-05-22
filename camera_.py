@@ -43,12 +43,13 @@ while True:
         print(data)
 
     except socket.error:
+        
         if data == b'start\r\n':
-            print("incomings")
+            cv2.imwrite("C:/distributed_data/77_79/" + str(count) + '.jpg', img_)
             count += 1
         elif data == b'stop\r\n':
             print("stop_sending")
-            print(count)
+            pass
 
         img_ = cv2.putText(img_, fps_disp, (10, 25), 
                             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
